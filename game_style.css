@@ -1,0 +1,94 @@
+body { 
+    margin: 0; 
+    overflow: hidden; 
+    background: #000; 
+    font-family: Arial, sans-serif;
+}
+#gameCanvas { 
+    background: linear-gradient(to bottom, #000 0%, #001 100%); 
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.hud { 
+    position: fixed; 
+    top: 20px; 
+    left: 20px; 
+    color: white; 
+    text-shadow: 0 0 5px #00ffff;
+    z-index: 10;
+}
+#fuelBar { 
+    width: 200px; 
+    height: 20px; 
+    border: 2px solid #0ff;
+    margin-top: 10px; 
+    background: rgba(0,0,0,0.5);
+}
+#fuelFill { 
+    height: 100%; 
+    background: linear-gradient(to right, #0f0, #8f8);
+    transition: width 0.3s; 
+}
+#startScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 100;
+}
+#startButton {
+    padding: 15px 30px;
+    font-size: 20px;
+    background: #0066ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+#startButton:hover {
+    background: #0099ff;
+    transform: scale(1.05);
+}
+.controls {
+    margin-top: 30px;
+    color: #aaa;
+}
+.game-over {
+    color: #ff5555;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#soundControl {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+#audioLoading {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #0f0;
+    display: none;
+}
+.warning {
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    color: #ff5555;
+    font-size: 16px;
+    display: none;
+}

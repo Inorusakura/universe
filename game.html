@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>太空生存挑战</title>
+    <link rel="stylesheet" href="game_style.css">
+</head>
+<body>
+    <div id="startScreen">
+        <h1>太空生存挑战</h1>
+        <p>在太空中生存尽可能长的时间</p>
+        <button id="startButton">开始游戏</button>
+        <div class="controls">
+            <p>使用 ↑ ↓ 或 W S 键切换轨道</p>
+            <p>躲避陨石并收集绿色燃料</p>
+            <p>按空格键快速开始</p>
+        </div>
+    </div>
+    <div class="hud">
+        <div>得分: <span id="score">0</span></div>
+        <div>速度: <span id="speed">3</span></div>
+        <div>燃料: 
+            <div id="fuelBar"><div id="fuelFill" style="width: 100%"></div></div>
+        </div>
+    </div>
+    <div class="warning" id="lowFuelWarning">⚠️ 燃料不足!</div>
+    <div id="soundControl">🔊 音效</div>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="game_script.js"></script>
+</body>
+</html>

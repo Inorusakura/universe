@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行星模拟系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 星云背景 -->
+    <div class="space-background">
+        <div class="nebula-core"></div>
+        <div class="shooting-stars"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">太阳系行星模拟</h1>
+        <div class="nav-buttons">
+            <button class="game-link" onclick="window.open('game.html', '_blank')">
+                <span>🚀 太空生存挑战</span>
+                <div class="hover-effect"></div>
+            </button>
+        </div>
+        <div class="solar-system">
+            <div class="sun"></div>
+            
+            <!-- 八大行星 -->
+            <div class="planet mercury" data-planet="mercury"></div>
+            <div class="planet venus" data-planet="venus"></div>
+            <div class="planet earth" data-planet="earth"></div>
+            <div class="planet mars" data-planet="mars"></div>
+            <div class="planet jupiter" data-planet="jupiter"></div>
+            <div class="planet saturn" data-planet="saturn"></div>
+            <div class="planet uranus" data-planet="uranus"></div>
+            <div class="planet neptune" data-planet="neptune"></div>
+            
+            <!-- 信息面板 -->
+            <div id="planet-info"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
