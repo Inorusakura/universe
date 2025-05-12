@@ -1,4 +1,4 @@
-//保存每个星球的数据，方便在后面调用
+//每个行星的数据
 const planetData = {
     mercury: {
         name: "水星",
@@ -67,13 +67,15 @@ const planetData = {
 };
 
 const infoPanel = document.getElementById('planet-info');
+// 当前选择的行星
 let currentPlanet = null;
-
+// 监测点击行星
 document.querySelectorAll('.planet').forEach(planet => {
     planet.addEventListener('click', function(e) {
         e.stopPropagation();
+        // 读取当前点击的行星
         const planetType = this.dataset.planet;
-        
+        //如果面板已经在了就关闭面板，否则打开
         if (currentPlanet === planetType) {
             closeInfo();
         } else {
@@ -83,18 +85,20 @@ document.querySelectorAll('.planet').forEach(planet => {
     });
 });
 
-// 在文档加载完成后调用
-document.addEventListener('DOMContentLoaded', () => {
-    preloadImages();
-    
-    // 图片加载完成时添加class
-    document.querySelectorAll('.planet-image img').forEach(img => {
-        img.onload = () => img.classList.add('loaded');
-    });
-});
-
+// 点击任意位置关闭面板
 document.addEventListener('click', closeInfo);
 
+// // 在文档加载完成后调用
+// document.addEventListener('DOMContentLoaded', () => {
+//     preloadImages();
+    
+//     // 图片加载完成时添加class
+//     document.querySelectorAll('.planet-image img').forEach(img => {
+//         img.onload = () => img.classList.add('loaded');
+//     });
+// });
+
+// 打开面板
 function showInfo(planetType, e) {
     const data = planetData[planetType];
     const rect = e.target.getBoundingClientRect();
@@ -102,10 +106,10 @@ function showInfo(planetType, e) {
     // 定位面板在点击位置附近
     let posX = e.clientX + 20;
     let posY = e.clientY - 150;
-
+    // 面板坐标
     infoPanel.style.left = `${posX}px`;
     infoPanel.style.top = `${posY}px`;
-    
+    // 面板内容
     infoPanel.innerHTML = `
         <h3>${data.name}</h3>
         <div class="planet-image">
@@ -126,13 +130,16 @@ function showInfo(planetType, e) {
         </div>
         <p class="desc">${data.desc}</p>
     `;
-    
+    // 创建面板
     infoPanel.classList.add('visible');
     document.querySelector(`[data-planet="${planetType}"]`).classList.add('highlight');
 }
 
+// 关闭面板
 function closeInfo() {
+    // 移除面板
     infoPanel.classList.remove('visible');
     document.querySelectorAll('.planet').forEach(p => p.classList.remove('highlight'));
+    // 重置选择的星球
     currentPlanet = null;
 }
