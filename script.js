@@ -66,7 +66,6 @@ const planetData = {
     }
 };
 
-const infoPanel = document.getElementById('planet-info');
 // 当前选择的行星
 let currentPlanet = null;
 // 监测点击行星
@@ -88,15 +87,7 @@ document.querySelectorAll('.planet').forEach(planet => {
 // 点击任意位置关闭面板
 document.addEventListener('click', closeInfo);
 
-// // 在文档加载完成后调用
-// document.addEventListener('DOMContentLoaded', () => {
-//     preloadImages();
-    
-//     // 图片加载完成时添加class
-//     document.querySelectorAll('.planet-image img').forEach(img => {
-//         img.onload = () => img.classList.add('loaded');
-//     });
-// });
+const infoPanel = document.getElementById('planet-info');
 
 // 打开面板
 function showInfo(planetType, e) {
@@ -114,7 +105,7 @@ function showInfo(planetType, e) {
         <h3>${data.name}</h3>
         <div class="planet-image">
             <img src="${data.imageUrl}" alt="${data.name}" 
-                 onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+                 onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">  
         </div>
         <div class="info-row">
             <span>轨道半径:</span>
@@ -130,8 +121,9 @@ function showInfo(planetType, e) {
         </div>
         <p class="desc">${data.desc}</p>
     `;
-    // 创建面板
+    // 使面板可见
     infoPanel.classList.add('visible');
+    // 使选中的行星高亮显示
     document.querySelector(`[data-planet="${planetType}"]`).classList.add('highlight');
 }
 
@@ -143,3 +135,13 @@ function closeInfo() {
     // 重置选择的星球
     currentPlanet = null;
 }
+
+// // 在文档加载完成后调用
+// document.addEventListener('DOMContentLoaded', () => {
+//     preloadImages();
+    
+//     // 图片加载完成时添加class
+//     document.querySelectorAll('.planet-image img').forEach(img => {
+//         img.onload = () => img.classList.add('loaded');
+//     });
+// });
